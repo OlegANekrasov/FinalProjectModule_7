@@ -22,5 +22,11 @@ namespace FinalProjectModule_7.DeliveryСlasses
                     dateDelivery = DateTime.Now.AddDays(5);
             }
         }
+
+        public ShopDelivery(string address, DateTime dateOrder)
+        {
+            DateDelivery = dateOrder;
+            Address = address;
+        }
     }
 }

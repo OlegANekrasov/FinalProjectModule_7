@@ -11,7 +11,12 @@ namespace FinalProjectModule_7.DeliveryСlasses
     // а также какой-то ещё информации.
     class PickPointDelivery : Delivery
     {
-        public PointIssueOrder PointIssueOrder;
+        private DateTime finishDateDelivery;
+        public DateTime FinishDateDelivery 
+        { 
+            get { return finishDateDelivery; } 
+            set { finishDateDelivery = value; }
+        }
 
         // В пункт выдачи товар будет доставлен через 7 дней после даты заказа
         public override DateTime DateDelivery
@@ -26,31 +31,11 @@ namespace FinalProjectModule_7.DeliveryСlasses
             }
         }
 
-        private DateTime FinishDateDelivery;
-
-        public PickPointDelivery(DateTime dateOrder, PointIssueOrder pointIssueOrder)
+        public PickPointDelivery(string address, DateTime dateOrder)
         {
             DateDelivery = dateOrder;
             FinishDateDelivery = dateOrder.AddDays(21);
-            PointIssueOrder = pointIssueOrder;
+            Address = address;
         }
     }
-
-    struct PointIssueOrder
-    {
-        private string namePickupPoint;
-        public string NamePickupPoint
-        {
-            get { return namePickupPoint; }
-            set { namePickupPoint = value; }
-        }
-
-        private string address;
-        public string Address
-        {
-            get { return address; }
-            set { address = value; }
-        }
-    }
-
 }

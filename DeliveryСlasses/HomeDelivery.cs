@@ -10,7 +10,7 @@ namespace FinalProjectModule_7.DeliveryСlasses
     // в нем будет располагаться своя, отдельная от прочих типов доставки логика
     class HomeDelivery : Delivery
     {
-        public HomeDeliveryType DeliveryType = HomeDeliveryType.Courier;
+        internal HomeDeliveryType DeliveryType = HomeDeliveryType.Courier;
 
         // В пункт выдачи товар будет доставлен курьером через 3 дня
         // курьерской компанией через 4 дня после даты заказа
