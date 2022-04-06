@@ -36,11 +36,11 @@ namespace FinalProjectModule_7.DeliveryСlasses
                 }
             }
         }
-        public HomeDelivery(HomeDeliveryType deliveryType, string address, DateTime dateDelivery)
+        public HomeDelivery(HomeDeliveryType deliveryType, string address, DateTime dateOrder)
         {
             DeliveryType = deliveryType;
             Address = address;
-            DateDelivery = dateDelivery;
+            DateDelivery = dateOrder;
         }
     }
 

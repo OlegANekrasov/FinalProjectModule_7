@@ -13,6 +13,8 @@ namespace FinalProjectModule_7.ProductClasses
         private int Quantity;    // Количество
         internal double Cost;     // Стоимость
 
+        public TCode GetCode { get { return Code; } }
+
         public BaseProduct(string name, TCode code, int quantity, double cost)
         {
             Name = name;
@@ -24,7 +26,7 @@ namespace FinalProjectModule_7.ProductClasses
         public virtual void ShowProduct() 
         {
             Console.WriteLine($"Товар: \"{Name}\"");
-            Console.WriteLine($"Код продукта: {Code}");
+            Console.WriteLine($"Код товара: {Code}");
             Console.WriteLine($"Количество: {Quantity}");
         }
     }

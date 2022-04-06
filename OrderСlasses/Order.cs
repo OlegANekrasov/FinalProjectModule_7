@@ -17,6 +17,7 @@ namespace FinalProjectModule_7.OrderСlasses
         private string Description;
         public static int Count = 0;
 
+        // Использование перегруженных операторов
         public static int operator +(Order<TDelivery> order, int num)
         {
             return Count + num;

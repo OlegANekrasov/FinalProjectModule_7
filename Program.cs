@@ -9,6 +9,8 @@ namespace FinalProjectModule_7
 {
     class Program
     {
+        public static void ShowCode<TCode>(TCode code) => Console.WriteLine($"Код товара: {code}");
+
         static void Main(string[] args)
         {
             Product<string> product_1 = new Product<string>("Куртка", "AA123123", 1, 5000.00);
@@ -20,12 +22,13 @@ namespace FinalProjectModule_7
             for (int i = 0; i < productCollection.Length; ++i)
             {
                 if (productCollection[i] is BaseProduct<string> productS)
-                    productS.ShowProduct();
+                    ShowCode(productS.GetCode);
 
                 if (productCollection[i] is BaseProduct<long> productL)
-                    productL.ShowProduct();
+                    ShowCode(productL.GetCode);
             }
 
+            Console.WriteLine("\nЗакзы...\n");
             HomeDelivery homeDelivery = new HomeDelivery(HomeDeliveryType.Courier, "Москва, Ленинский пр-т, д. 25, кв. 10", DateTime.Now);
             Order<HomeDelivery> order = new Order<HomeDelivery>(homeDelivery, productCollection, 1, "...");
             order.ShowOrder();
