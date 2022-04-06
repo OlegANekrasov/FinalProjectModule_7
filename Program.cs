@@ -19,7 +19,7 @@ namespace FinalProjectModule_7
             // Создем массив товаров
             Object[] products_1 = new Object[] { product_1, product_2 };
             ProductCollection productCollection_1 = new ProductCollection(products_1);
-            Console.WriteLine("Выброно товаров: \n");
+            Console.WriteLine("Выбрано товаров: \n");
             for (int i = 0; i < productCollection_1.Length; ++i)
             {
                 if (productCollection_1[i] is BaseProduct<string> productS)
@@ -79,6 +79,28 @@ namespace FinalProjectModule_7
 
             ++Order<ShopDelivery>.Count;
             Order<ShopDelivery>.DisplayCount();
+
+            // Коллекция заказов
+            Console.WriteLine("Создание коллекции Заказов ...\n");
+            Object[] arrOrders = { order_1, order_2, order_3, order_4 };
+            OrderCollection orderCollection = new OrderCollection(arrOrders.Length);
+            for (int i = 0; i < orderCollection.Length; ++i)
+            {
+                orderCollection[i] = arrOrders[i];
+            }
+            
+            Console.WriteLine("Заказы:\n");
+            for (int i = 0; i < orderCollection.Length; ++i)
+            {
+                if (orderCollection[i] is Order<HomeDelivery> hd)
+                    hd.ShowOrder();
+                
+                if (orderCollection[i] is Order<PickPointDelivery> pd)
+                    pd.ShowOrder();
+
+                if (orderCollection[i] is Order<ShopDelivery> sd)
+                    sd.ShowOrder();
+            }
 
             Console.ReadLine();
         }
